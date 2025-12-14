@@ -1,8 +1,6 @@
-Creating a basic calculator app can be done using HTML, CSS, and JavaScript. Below is a simple example of how to create a basic calculator that can perform addition, subtraction, multiplication, and division.
+Creating a basic calculator app involves HTML for the structure, CSS for styling, and JavaScript for functionality. Below is a simple example of a calculator that can perform addition, subtraction, multiplication, and division.
 
-### Step 1: HTML Structure
-
-Create an `index.html` file with the following markup:
+### HTML (index.html)
 
 ```html
 <!DOCTYPE html>
@@ -18,21 +16,21 @@ Create an `index.html` file with the following markup:
         <input type="text" id="display" disabled>
         <div class="buttons">
             <button onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('-')">-</button>
             <button onclick="appendToDisplay('7')">7</button>
             <button onclick="appendToDisplay('8')">8</button>
             <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('+')">+</button>
             <button onclick="appendToDisplay('4')">4</button>
             <button onclick="appendToDisplay('5')">5</button>
             <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="calculateResult()">=</button>
             <button onclick="appendToDisplay('1')">1</button>
             <button onclick="appendToDisplay('2')">2</button>
             <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('-')">-</button>
             <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="calculateResult()">=</button>
-            <button onclick="appendToDisplay('+')">+</button>
         </div>
     </div>
     <script src="script.js"></script>
@@ -40,23 +38,21 @@ Create an `index.html` file with the following markup:
 </html>
 ```
 
-### Step 2: CSS Styles
-
-Create a `styles.css` file for basic styling:
+### CSS (styles.css)
 
 ```css
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
 }
 
 .calculator {
     border: 1px solid #ccc;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -67,9 +63,7 @@ body {
     height: 40px;
     margin-bottom: 10px;
     text-align: right;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 24px;
     padding: 5px;
 }
 
@@ -82,11 +76,12 @@ body {
 button {
     padding: 20px;
     font-size: 18px;
+    cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #007BFF;
     color: white;
-    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -94,17 +89,17 @@ button:hover {
 }
 ```
 
-### Step 3: JavaScript Logic
-
-Create a `script.js` file to handle the calculator logic:
+### JavaScript (script.js)
 
 ```javascript
 function appendToDisplay(value) {
-    document.getElementById("display").value += value;
+    const display = document.getElementById("display");
+    display.value += value;
 }
 
 function clearDisplay() {
-    document.getElementById("display").value = '';
+    const display = document.getElementById("display");
+    display.value = '';
 }
 
 function calculateResult() {
@@ -119,14 +114,15 @@ function calculateResult() {
 
 ### How to Run the App
 
-1. Create a new directory and inside that directory, create three files: `index.html`, `styles.css`, and `script.js`.
-2. Copy and paste the code provided into the respective files.
-3. Open `index.html` in your web browser to see your basic calculator in action.
+1. **Create a project folder** on your computer.
+2. Inside the folder, create three files: `index.html`, `styles.css`, and `script.js`.
+3. Copy the respective code provided above into each file.
+4. Open `index.html` in a web browser.
 
 ### Features of the Calculator
 
-- The calculator supports basic arithmetic operations: addition, subtraction, multiplication, and division.
-- You can clear the display by clicking the "C" button.
-- It uses the `eval` function to evaluate the expression; make sure to use it carefully in a real-world application.
+- Basic operations: addition, subtraction, multiplication, and division.
+- Clear functionality to reset the display.
+- Error handling for invalid input.
 
-Feel free to enhance the styling or functionality as per your requirements!
+Feel free to expand upon this basic functionality by adding more features like keyboard support, scientific operations, or a more advanced styling approach!
