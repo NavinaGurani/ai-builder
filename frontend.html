@@ -1,6 +1,9 @@
-Creating a basic calculator app involves using HTML, CSS, and JavaScript. Below is a simple example that provides a user interface for a calculator that can perform addition, subtraction, multiplication, and division.
+Creating a basic calculator app can be done using HTML, CSS, and JavaScript. Below is a simple example of how to create a basic calculator that can perform addition, subtraction, multiplication, and division.
 
-### HTML (index.html)
+### Step 1: HTML Structure
+
+Create an `index.html` file with the following markup:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +31,7 @@ Creating a basic calculator app involves using HTML, CSS, and JavaScript. Below 
             <button onclick="appendToDisplay('3')">3</button>
             <button onclick="appendToDisplay('-')">-</button>
             <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="calculate()">=</button>
+            <button onclick="calculateResult()">=</button>
             <button onclick="appendToDisplay('+')">+</button>
         </div>
     </div>
@@ -37,30 +40,34 @@ Creating a basic calculator app involves using HTML, CSS, and JavaScript. Below 
 </html>
 ```
 
-### CSS (styles.css)
+### Step 2: CSS Styles
+
+Create a `styles.css` file for basic styling:
+
 ```css
 body {
-    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
 .calculator {
-    background-color: white;
-    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 10px;
+    padding: 20px;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #display {
     width: 100%;
     height: 40px;
-    font-size: 24px;
-    text-align: right;
     margin-bottom: 10px;
+    text-align: right;
+    font-size: 18px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
@@ -87,36 +94,39 @@ button:hover {
 }
 ```
 
-### JavaScript (script.js)
+### Step 3: JavaScript Logic
+
+Create a `script.js` file to handle the calculator logic:
+
 ```javascript
 function appendToDisplay(value) {
-    const display = document.getElementById("display");
-    display.value += value;
+    document.getElementById("display").value += value;
 }
 
 function clearDisplay() {
-    document.getElementById("display").value = "";
+    document.getElementById("display").value = '';
 }
 
-function calculate() {
+function calculateResult() {
     const display = document.getElementById("display");
     try {
         display.value = eval(display.value);
-    } catch (e) {
-        display.value = "Error";
+    } catch (error) {
+        display.value = 'Error';
     }
 }
 ```
 
-### Instructions to Run the App
-1. Create three files: `index.html`, `styles.css`, and `script.js`.
-2. Copy the respective code into each file.
-3. Open `index.html` in a web browser.
+### How to Run the App
 
-### Explanation
-- **HTML**: This sets up the structure of the calculator with buttons for numbers and operations.
-- **CSS**: This styles the calculator, making it visually appealing with padding, borders, and hover effects.
-- **JavaScript**: This handles the logic for appending numbers and operators to the display, clearing the display, and calculating the result using the `eval()` function.
+1. Create a new directory and inside that directory, create three files: `index.html`, `styles.css`, and `script.js`.
+2. Copy and paste the code provided into the respective files.
+3. Open `index.html` in your web browser to see your basic calculator in action.
 
-### Note
-While `eval()` is used here for simplicity, please be cautious with it in a real-world application, as it can execute arbitrary code. For more complex calculations, consider implementing a parser instead.
+### Features of the Calculator
+
+- The calculator supports basic arithmetic operations: addition, subtraction, multiplication, and division.
+- You can clear the display by clicking the "C" button.
+- It uses the `eval` function to evaluate the expression; make sure to use it carefully in a real-world application.
+
+Feel free to enhance the styling or functionality as per your requirements!
